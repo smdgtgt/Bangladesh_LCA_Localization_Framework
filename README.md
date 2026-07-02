@@ -1,19 +1,20 @@
 # Bangladesh_LCA_Localization_Framework
 Open-source framework for estimating cradle-to-gate embodied carbon (A1-A3) of construction materials in data-scarce contexts along with transportation (A4) based on projects. It contains the LCA Localization Workbench (an interactive tool) and the Python analysis pipeline used to derive localized carbon coefficients, developed for the case of Bangladesh.
 This repository accompanies the M.S. thesis Decarbonizing the Built Environment of Bangladesh: Building a Framework to Calculate Embodied Carbon in Data-Scarce Contexts (Smita Sabnam, 2026), and publishes the source code from its appendices.
-This repository contains code only. The underlying material records were obtained from the One Click LCA database and are not redistributed here due to that platform's data-use terms. The code documents the full method and can be run against your own equivalent inputs.
+This repository includes the source code and a standalone LCA Workbench. Separate raw, cleaned, intermediate, and final CSV datasets are not redistributed here. The code documents the full method and can be run against your own equivalent inputs.
 
  1. Workbench/ — the LCA Localization Workbench, a single-file interactive tool (thesis Appendix A). Its coefficients are embedded in the file, so it runs standalone with no data or setup.
  2. Global Data Cleaning Process/ — clean_oclca.py, which compiles and cleans raw material exports into a single normalized table   (thesis Appendix D).
  3. Pipeline/ — six numbered scripts that take the cleaned data and derive the localization coefficients (thesis Appendices E–J).
 
-Method
+## Method
 The core localization equation is:
 GWP_BD(A1–A3) = GWP_OCL × K × F
 Here, 
 GWP_OCL = Carbon emission data from One Click LCA 
 K = India-side A1–A3 GWP value for material family m/ One Click LCA A1–A3 GWP value for material family m
-F = Fuel mix factor (ratio between Indian fuel's carbon intensity and Bangladesh fuel's carbon intensity)
+F = Fuel mix factor (Bangladesh fuel-carbon intensity / India fuel-carbon intensity)
+  = I_fuel,BD / I_fuel,IN
 
 For Carbon emission (transportation to site), GWP_BD A4 = Qm x D x FCmode x EFfuel
 Here, 
@@ -25,7 +26,7 @@ EFfuel = Emission factor of the selected fuel
 For, Carbon emission (Cradle to transportation to site),
 For GWP_BD(A1–A4) = GWP_BD(A1–A3) + GWP_BD A4
 
-Repository structure
+## Repository structure
 Bangladesh_LCA_Localization_Framework/
 ├── README.md
 ├── LICENSE
@@ -41,10 +42,10 @@ Bangladesh_LCA_Localization_Framework/
     ├── step5_similarity_transfer.py # kNN similarity transfer (Appendix I)
     └── step6_export.py              # final export (Appendix J)
 
-Using the Workbench
-Open Workbench/LCA_Workbench_Tool.html in any modern browser. No build step, server, or data files are required.
+## Using the Workbench
+Download `Workbench/LCA_Workbench_Tool.html` and open it in any modern web browser. No installation, server, or separate CSV files are required.
 
-Running the pipeline
+## Running the pipeline
 The scripts read and write plain CSVs in the current working directory, and run in order.
   1. Cleaning stage. Place your raw material exports in a folder and run the cleaning script from inside it. It produces all_materials_clean.csv:
      python "Global Data Cleaning Process/clean_oclca.py"
@@ -59,7 +60,7 @@ The scripts read and write plain CSVs in the current working directory, and run 
 The final step writes localization_coefficients.csv (and .json), the coefficient table consumed by the Workbench.
 Dependencies: pandas, numpy, and scikit-learn.
 
-Citation
+## Citation
 If you use this code, please cite the software:
 CITATION
 
