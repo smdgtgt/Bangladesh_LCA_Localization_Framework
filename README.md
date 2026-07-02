@@ -9,14 +9,19 @@ This repository includes the source code and a standalone LCA Workbench. Separat
 
 ## Method
 The core localization equation is:
+```
 GWP_BD(A1–A3) = GWP_OCL × K × F
+```
 Here, 
 GWP_OCL = Carbon emission data from One Click LCA 
 K = India-side A1–A3 GWP value for material family m/ One Click LCA A1–A3 GWP value for material family m
 F = Fuel mix factor (Bangladesh fuel-carbon intensity / India fuel-carbon intensity)
   = I_fuel,BD / I_fuel,IN
 
-For Carbon emission (transportation to site), GWP_BD A4 = Qm x D x FCmode x EFfuel
+For Carbon emission (transportation to site), 
+```
+GWP_BD A4 = Qm x D x FCmode x EFfuel
+```
 Here, 
 Qm = Transported quantity of material m
 D = Route Distance 
@@ -24,7 +29,10 @@ FCmode = Fuel-consumption rate for the selected transport mode, expressed per to
 EFfuel = Emission factor of the selected fuel
 
 For, Carbon emission (Cradle to transportation to site),
-For GWP_BD(A1–A4) = GWP_BD(A1–A3) + GWP_BD A4
+For 
+```
+GWP_BD(A1–A4) = GWP_BD(A1–A3) + GWP_BD A4
+```
 
 ## Repository structure
 Bangladesh_LCA_Localization_Framework/
