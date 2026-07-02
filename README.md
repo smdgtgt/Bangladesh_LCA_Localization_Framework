@@ -55,15 +55,15 @@ Download `Workbench/LCA_Workbench_Tool.html` and open it in any modern web brows
 
 ## Running the pipeline
 The scripts read and write plain CSVs in the current working directory, and run in order.
-  1. Cleaning stage. Place your raw material exports in a folder and run the cleaning script from inside it. It produces all_materials_clean.csv:
-     python "Global Data Cleaning Process/clean_oclca.py"
+  1. Cleaning stage. Copy clean_oclca.py into a local folder containing the authorized raw CSV exports, then run: `python clean_oclca.py.` It produces all_materials_clean.csv:
+     `python "Global Data Cleaning Process/clean_oclca.py"`
   2. Analysis stage. With all_materials_clean.csv and your ifc_reference.csv in the working directory, run the pipeline in sequence:
-     python Pipeline/step1_load_normalize.py
-     python Pipeline/step2_features.py
-     python Pipeline/step3_matching.py
-     python Pipeline/step4_coefficients.py
-     python Pipeline/step5_similarity_transfer.py
-     python Pipeline/step6_export.py
+     `python Pipeline/step1_load_normalize.py`
+     `python Pipeline/step2_features.py`
+     `python Pipeline/step3_matching.py`
+     `python Pipeline/step4_coefficients.py`
+     `python Pipeline/step5_similarity_transfer.py`
+     `python Pipeline/step6_export.py`
 
 The final step writes localization_coefficients.csv (and .json), the coefficient table consumed by the Workbench.
 Dependencies: pandas, numpy, and scikit-learn.
