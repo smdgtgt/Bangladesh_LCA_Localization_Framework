@@ -70,7 +70,7 @@ Dependencies: pandas, numpy, and scikit-learn.
 
 ## Citation
 If you use this code, please cite the software:
-CITATION
+Sabnam, S. (2026). Bangladesh LCA Localization Framework (Version 1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21140237
 
 And the accompanying thesis:
 CITATION
