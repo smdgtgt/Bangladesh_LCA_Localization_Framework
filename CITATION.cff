@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+
+message: "If you use this software, please cite it as below."
+
+title: "Bangladesh LCA Localization Framework"
+
+authors:
+  - family-names: "Sabnam"
+    given-names: "Smita"
+    orcid: "https://orcid.org/0009-0001-0591-6144"
+
+version: "1.0.0"
+date-released: "2026-07-02"
+
+doi: "10.5281/zenodo.21140237"
