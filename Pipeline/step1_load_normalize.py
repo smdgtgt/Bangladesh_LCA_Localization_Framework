@@ -1,11 +1,7 @@
 """
-STEP 1 - Load and unit-normalize.
-
-Loads the One Click LCA cleaned CSV and the IFC India reference table, confirms
-both global-warming values are on the same per-kilogram basis, and reports
-coverage + which families exist on both sides.
-
-Run:  python step1_load_normalize.py
+Note: A comparison between the One Click LCA database and the IFC database from India.
+Compares the materials, their functional units and the technical specifications to assess the
+feasibility of comparison.
 """
 import re
 import pandas as pd
