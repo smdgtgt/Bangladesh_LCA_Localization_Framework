@@ -1,7 +1,5 @@
 """
-STEP 3 - Technical matching matrix (IFC <-> One Click).
-
-Scores each One Click material against the IFC record(s) of its family on FIVE
+Note: Scores each One Click material against the IFC record(s) of its family on FIVE
 technical criteria, GWP deliberately excluded:
   1. composition   (raw-ingredient overlap)
   2. process/kiln   (manufacturing-process overlap)
@@ -16,9 +14,8 @@ Classification follows the thesis rule:
   low       =  >=1 match
   none      =   0 matches
 
-Keeps the best pairing per One Click material. Writes matching_results.csv.
-
-Run:  python step3_matching.py
+Keeps the best pairing per One Click material. 
+Writes matching_results.csv.
 """
 import re
 import pandas as pd
