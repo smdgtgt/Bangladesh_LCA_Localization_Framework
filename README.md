@@ -29,7 +29,6 @@ FCmode = Fuel-consumption rate for the selected transport mode, expressed per to
 EFfuel = Emission factor of the selected fuel
 
 For, Carbon emission (Cradle to transportation to site),
-For 
 ```
 GWP_BD(A1–A4) = GWP_BD(A1–A3) + GWP_BD A4
 ```
