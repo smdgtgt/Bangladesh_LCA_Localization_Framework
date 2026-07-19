@@ -1,18 +1,12 @@
 """
-STEP 2 - Feature extraction for the similarity engine.
-
-Builds ONE shared feature schema for both datasets so Step 3 can compare them
-on the same axes: material family/group, density, product form, whether the
-form is voided (hollow/aerated), manufacturing-process keywords, raw-ingredient
-keywords, strength class, and recycled %.
+Note: This step is created to make table-based on features. So that in the next step the
+features can be compared in the next step.
 
 Features come from each material's name + technical spec/notes. IFC names are
 terse, so a small notes table fills in composition the name omits (e.g. float
 glass = sand/soda/dolomite), drawn from the methodology report Section V.
 
 Outputs oclca_features.csv and ifc_features.csv, then prints a coverage report.
-
-Run:  python step2_features.py
 """
 import re
 import pandas as pd
