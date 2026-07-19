@@ -1,32 +1,11 @@
 """
-STEP 5 - Similarity transfer (Gower-distance k-Nearest-Neighbors).
+Note: Fills in every material that didn't get a direct K from Step 4 using
+k-nearest-neighbors on Gower distance (mixes numeric and categorical features
+on one scale). Same-family neighbours are tried first; cross-family is the
+fallback. Biogenic/near-zero materials get a number too but are flagged for
+review.
 
-Goal: give EVERY One Click material a localization coefficient K, even the ones
-that had no strong/medium IFC match. Nothing is left blank.
-
-How it works (k-Nearest-Neighbors):
-  - Each material is a point described by its features (density, product form,
-    voided, process keywords, ingredient keywords, strength class, recycled %).
-  - 387 materials already have a TRUSTED K (the validated ratio coefficients
-    from Step 4). These are the "labeled" points.
-  - For every material WITHOUT a trusted K, we find the k closest labeled points
-    by Gower distance and take a distance-weighted average of their K values.
-
-Transfer order (as agreed):
-  1. Same-family neighbours first  -> confidence "Low"
-  2. Cross-family fallback (no labeled neighbour in the family) -> "Review"
-  Biogenic / near-zero materials always get a number too, but are tagged
-  "Review (biogenic)" because the ratio is mathematically unstable there.
-
-Gower distance mixes numbers (density) and categories (form, keywords) on one
-0-1 scale, so they compare cleanly. Missing features are skipped (neutral),
-matching the Step 3 philosophy that unknowns don't penalize.
-
-Reads:  all_materials_clean.csv, oclca_features.csv, matching_results.csv,
-        anchor_coefficients.csv, family_anchors.csv
-Writes: step5_all_coefficients.csv   (one row per distinct material)
-
-Run:  python step5_similarity_transfer.py
+Outputs step5_all_coefficients.csv — one row per distinct material, no blanks.
 """
 import numpy as np
 import pandas as pd
