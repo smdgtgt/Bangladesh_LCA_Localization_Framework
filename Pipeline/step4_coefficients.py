@@ -1,27 +1,22 @@
 """
-STEP 4 - Validated anchor coefficients.
-
-For every strongest / medium pair from Step 3, compute the localization
+Note: For every strongest / medium pair from Step 3, compute the localization
 coefficient as a RATIO:
 
-    K = GWP_IFC / GWP_OneClick        (same per-kg basis; the 0.79 fuel-mix
-                                        factor is NOT applied here)
+    K = GWP_IFC / GWP_OneClick       
 
 Also reports the absolute difference and the % adjustment:
     delta = GWP_IFC - GWP_OneClick
     pct   = (K - 1) * 100
 
-Carbon-negative / near-zero handling: a ratio is only meaningful when both
-sides are safely positive. Where either side is < 0.05 kg CO2e/kg (negative
-or near-zero, i.e. the biogenic timber/cork/earth materials), the ratio is
-numerically unstable and physically meaningless as a multiplier, so K is
-flagged 'biogenic_or_nearzero' and only the well-defined delta is reported.
+Where either side is
+negative or near-zero (biogenic/earth materials), the ratio is flagged
+unstable and only the absolute delta is reported.
+
+Also picks one representative K per family for use in Step 5's similarity transfer.
 
 Outputs:
   anchor_coefficients.csv  - one row per validated pair, with K / delta / pct
   family_anchors.csv       - representative K per family (input to Step 5)
-
-Run:  python step4_coefficients.py
 """
 import pandas as pd
 import numpy as np
