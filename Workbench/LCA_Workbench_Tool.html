@@ -656,6 +656,9 @@
   .tc-dl-row { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; align-items: center; }
   .tc-dl-lab { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-right: 2px; }
   @media (max-width: 640px) { .tc-body { justify-content: center; } .tc-eq { justify-content: center; } }
+.attr-footer { margin-top: 64px; padding: 24px 0 20px; border-top: 1px solid var(--ink-5, #d0d5d8); text-align: center; font-family: var(--sans, 'DM Sans', sans-serif); font-size: 12px; color: var(--ink-3, #5a7178); line-height: 1.7; }
+  .attr-footer a { color: var(--teal, #3a9d8a); text-decoration: none; }
+  .attr-footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -3199,7 +3202,13 @@
             />
           )}
         </main>
-
+        
+<footer className="attr-footer">
+          © 2026 Smita Sabnam · Iowa State University<br/>
+          Developed as part of the M.S. thesis <em>Decarbonizing the Built Environment of Bangladesh</em><br/>
+          <a href="https://doi.org/10.5281/zenodo.21140237" target="_blank" rel="noopener">DOI: 10.5281/zenodo.21140237</a>
+        </footer>
+        
         {toast && <div className="toast">{toast}</div>}
       </>
     );
