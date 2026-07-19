@@ -1,27 +1,10 @@
 """
-STEP 6 - Final confidence labels + export for the React workbench.
+Note: Takes the Step 5 table and exports the two files the workbench reads —
+a JSON keyed by resource_id for the SPA lookup, and a flat CSV for auditing.
+Rounds numbers, cleans labels, and builds a family index so the workbench can
+populate its dropdowns.
 
-Takes the Step 5 table (every material already has a K) and produces the two
-files the workbench reads at Steps 9-10:
-
-  localization_coefficients.json  - keyed by resource_id; the lookup the SPA uses.
-  localization_coefficients.csv   - the same data, flat, for you to read/audit.
-
-What this step does:
-  1. Renames "Review (biogenic)" -> "Review (biogenic/low-carbon)" so the label
-     is accurate for the 8 low-carbon (non-wood) materials in that group.
-  2. Rounds numbers to sensible precision.
-  3. Builds a resource_id -> record map, plus a family -> [materials] index so the
-     workbench can populate its dropdowns and pass back the resource_id.
-  4. Writes a metadata header (date, definitions, the no-0.79 reminder).
-
-REMINDER: the 0.79 Bangladesh fuel-mix factor is NOT applied here. It belongs to
-the workbench localization equation (Step 11), never to the coefficient itself.
-
-Reads:  step5_all_coefficients.csv
-Writes: localization_coefficients.json, localization_coefficients.csv
-
-Run:  python step6_export.py
+Outputs localization_coefficients.json and localization_coefficients.csv.
 """
 import json
 from datetime import date
